@@ -15,8 +15,8 @@ const httpOptions = {
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  public getUser(id: string) {
-    return this.http.get(`${baseUrl}/users/user/${id}`);
+  public getUser(phone: string) {
+    return this.http.get(`${baseUrl}/users/user/?phone=${phone}`);
   }
 
   public login(loginData): Observable<any> {

@@ -10,6 +10,8 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatService } from './services/chat.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CommonModule
   ],
-  providers: [UserService],
+  providers: [UserService, ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,11 @@
-<p>chat works!</p>
+<div class="chat-container">
+    <div class="messages">
+        <div *ngFor="let message of messages" [ngClass]="getMessageCssClass(message)">
+            <p>{{ message.content }}</p>
+        </div>
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="Введіть повідомлення" [(ngModel)]="newMessage">
+      <button (click)="sendMessage()">Відправити</button>
+    </div>
+</div>
