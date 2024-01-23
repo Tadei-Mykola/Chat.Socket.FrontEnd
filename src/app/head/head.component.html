@@ -1,0 +1,6 @@
+<div class="head">
+    <p (click)="login()">{{title}}</p>
+    <div *ngIf="isLogin" (click)="login()" class="login-window">
+        <app-authenticate [isAuthenticate]="isAuthenticate" (click)="preventClose($event)" (loginStatusChanged)="onLoginStatusChanged($event)"></app-authenticate>
+    </div>
+</div>

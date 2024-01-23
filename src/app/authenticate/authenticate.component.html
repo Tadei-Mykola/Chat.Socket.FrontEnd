@@ -1,0 +1,37 @@
+<div class="container-logout" *ngIf="isAuthenticate">
+    <button (click)="logout()">Вихід</button>
+</div>
+<div class="container-login" *ngIf="!isAuthenticate">
+    <div *ngIf="isRegistration">
+        <h2>Реєстрація</h2>
+        <form [formGroup]="registrationData" (ngSubmit)="register()">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" formControlName="name">
+
+            <label for="registration-phone">Номер телефону:</label>
+            <input type="text" id="registration-phone" name="registration-phone" formControlName="phone">
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" formControlName="password">
+
+            <div>
+                <button type="submit" [ngClass]="{'isButton': isRegistration}">Зареєструватися</button>
+                <button (click)="changeForm()" [ngClass]="{'isButton': !isRegistration}">Увійти</button>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="!isRegistration">
+        <h2>Вхід</h2>
+        <form [formGroup]="loginData" (ngSubmit)="login()">
+            <label for="login-phone">Номер телефону:</label>
+            <input type="text" id="login-phone" name="login-phone" formControlName="phone">
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" formControlName="password">
+            <div>
+                <button (click)="changeForm()" [ngClass]="{'isButton': isRegistration}">Зареєструватися</button>
+                <button type="submit" [ngClass]="{'isButton': !isRegistration}">Увійти</button>
+            </div>
+        </form>
+    </div>
+</div>
