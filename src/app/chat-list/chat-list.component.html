@@ -1,1 +1,22 @@
-<p>chat-list works!</p>
+<div class="container">
+    <div class="chat-list">
+        <div class="add">
+            <button (click)=" changeWindowAddChat()">+</button>
+        </div>
+        <ng-container *ngFor="let chat of chatList">
+            <div (click)="selectChat(chat.iduser, chat.idusertwo)">
+                <p>{{ chat.nameusertwo }}</p>
+            </div>
+        </ng-container>
+    </div>
+    <div class="app-chat" *ngIf="isSelectChat">
+        <app-chat [selectedChat]="selectedChat"></app-chat>
+    </div>
+</div>
+<div class="overlay" *ngIf="isAddChat" (click)=" changeWindowAddChat()">
+    <div class="addChat" (click)="preventClose($event)">
+        <label for="phone">Номер телефону:</label>
+        <input type="text" id="phone" name="phone" [(ngModel)]="friendPhone">
+        <button (click)="addChat()">Додати</button>
+    </div>
+</div>
